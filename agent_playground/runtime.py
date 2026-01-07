@@ -11,7 +11,7 @@ async def init_session(
 ) -> Session:
 
     # Saving all non-private settings into the session state
-    data = settings.model_dump() if hasattr(settings, "model_dump") else vars(settings)
+    data = vars(settings)
     initial_state = {k: v for k, v in data.items() if not k.startswith("_")}
 
     session = await session_service.create_session(
