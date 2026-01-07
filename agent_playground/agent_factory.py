@@ -29,7 +29,9 @@ For anything else, respond appropriately or state you cannot handle it""",
         sub_agents=[build_weather_agent(settings), build_greeting_and_farewell_agent(settings)],
     )
 
-# TODO: check if weather can be extracted via online API
+# TODO: check if weather can be extracted via online API.
+# Example: Open-Meteo - Free with no API key required
+# OpenWeatherMap - Widely used in tutorials, offers a free plan for non-commercial use with limits (e.g., 1,000 calls/day for one call 3.0 API).
 def build_weather_agent(settings: Settings) -> Agent:
     """Create the ADK Agent instance.
 
