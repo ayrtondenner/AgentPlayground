@@ -65,7 +65,7 @@ def say_hello(tool_context: ToolContext, name: Optional[str] = None) -> str:
         print("--- Tool: say_hello called without a specific name ---")
     return greeting
 
-def say_goodbye() -> str:
+def say_goodbye(tool_context: ToolContext) -> str:
     """Provides a simple farewell message to conclude the conversation."""
     print("--- Tool: say_goodbye called ---")
     hour = datetime.now().hour
@@ -75,5 +75,7 @@ def say_goodbye() -> str:
         part_of_day = "afternoon"
     else:
         part_of_day = "night"
+
+    tool_context.state["conversation_ended"] = True
 
     return f"Goodbye! Have a great {part_of_day}."

@@ -6,6 +6,8 @@ from google.adk.models.lite_llm import LiteLlm
 from settings import Settings
 from tools import get_weather, say_hello, say_goodbye
 
+# TODO: create agent to get local time in a city
+
 # TODO: remove root agent, since next response always start with last selected agent
 def build_root_agent(settings: Settings) -> Agent:
     """Create the root ADK Agent instance.
@@ -49,6 +51,7 @@ def build_weather_agent(settings: Settings) -> Agent:
             "If the tool is successful, present the weather report clearly."
         ),
         tools=[get_weather],
+        output_key="weather_agent_response",
     )
 
 def build_greeting_and_farewell_agent(settings: Settings) -> Agent:
