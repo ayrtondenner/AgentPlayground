@@ -1,5 +1,5 @@
 from typing import Optional
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 from google.adk.tools.tool_context import ToolContext
 
@@ -38,6 +38,52 @@ def get_weather(city: str) -> dict:
     return {
         "status": "error",
         "error_message": f"Sorry, I don't have weather information for '{city}'.",
+    }
+
+def get_local_time(city: str) -> dict:
+    """Retrieves the current local time for a specified city.
+
+    Uses mocked city support (New York, London, Tokyo) but performs real timezone
+    conversion from UTC using fixed offsets.
+
+    Args:
+        city: The name of the city (e.g., "New York", "London", "Tokyo").
+
+    Returns:
+        dict: Includes a 'status' key ('success' or 'error').
+              If 'success', includes a 'report' key.
+              If 'error', includes an 'error_message' key.
+    """
+    print(f"--- Tool: get_local_time called for city: {city} ---")
+    city_normalized = city.lower().replace(" ", "")
+
+    # Fixed UTC offsets for this mock tool.
+    # Note: This intentionally does not model daylight saving time.
+    mock_timezones = {
+        "newyork": {"display": "New York", "utc_offset_hours": -5},
+        "london": {"display": "London", "utc_offset_hours": 0},
+        "tokyo": {"display": "Tokyo", "utc_offset_hours": 9},
+    }
+
+    tz_info = mock_timezones.get(city_normalized)
+    if not tz_info:
+        return {
+            "status": "error",
+            "error_message": f"Sorry, I don't have local time information for '{city}'.",
+        }
+
+    utc_now = datetime.now(timezone.utc)
+    local_tz = timezone(timedelta(hours=tz_info["utc_offset_hours"]))
+    local_time = utc_now.astimezone(local_tz)
+    offset = tz_info["utc_offset_hours"]
+    offset_label = f"UTC{offset:+d}"
+
+    return {
+        "status": "success",
+        "report": (
+            f"The local time in {tz_info['display']} is "
+            f"{local_time.strftime('%Y-%m-%d %H:%M:%S')} ({offset_label})."
+        ),
     }
 
 def say_hello(tool_context: ToolContext, name: Optional[str] = None) -> str:

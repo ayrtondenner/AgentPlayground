@@ -1,7 +1,8 @@
 hi!
-is it sunny now in the capital of japan?
+is it cold now in the capital of japan? should I take my raincoat there?
+and what is the local time in London now?
 ok, so how's the weather now for the city of angels?
-and what about the city that never sleeps?
+and what about weather in the city that never sleeps? is it time to sleep there right now?
 and the weather for paris, do you have it?
 and for kyoto? how is it going there?
 isnt tokio and kyoto at the same country? how could you have data for one city but not another?
@@ -9,4 +10,6 @@ isnt tokio and kyoto at the same country? how could you have data for one city b
 what was the first city we talked about again?
    
 please give me a list of cities that we couldnt get the weather here in the conversation
+in fact, give me a list of all cities we discussed about
+give me again climate and time in tokyo?
 ok thkx bye bye!

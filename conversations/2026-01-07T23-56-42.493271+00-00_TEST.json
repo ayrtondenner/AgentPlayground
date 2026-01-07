@@ -1,0 +1,739 @@
+{
+  "state": {
+    "app_name": "weather_tutorial_app",
+    "session_id": "4db823bd-c380-43b6-b8e5-978c7e350d9c",
+    "user_id": "1",
+    "user_name": "Ayrton Denner",
+    "user_email": "ayrtondenner_2013@hotmail.com",
+    "weather_agent_response": "Here is a list of all the cities we discussed in this conversation:\n\n1. Tokyo\n2. London\n3. Los Angeles\n4. New York\n5. Paris\n6. Kyoto\n\nIf you’d like more information about any of these cities, feel free to ask!",
+    "local_time_agent_response": "Tokyo is currently experiencing light rain with a temperature of 18°C. The local time in Tokyo is 08:56 (8:56 AM).",
+    "conversation_ended": true
+  },
+  "conversation": [
+    {
+      "id": "770ab8af-e12c-4ff1-b380-be97da3668de",
+      "role": "user",
+      "content": "hi!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "f73f6319-fbeb-4d6f-aff2-cf82cf38190b",
+      "role": "root_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_9QsjyBOVEw72THIn5MhEh7oU",
+          "args": {
+            "agent_name": "greeting_and_farewell_agent"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "416ed043-e0bd-40be-9b6f-26f018d4d65c",
+      "role": "root_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_9QsjyBOVEw72THIn5MhEh7oU",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "dec3f6e0-16c4-47e8-958e-8f2a35afe9a6",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_1580xOgmVH0Thpoc3Z607WbS",
+          "args": {},
+          "name": "say_hello"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "97fe2882-eeaf-4205-8c22-f142b63cae90",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_1580xOgmVH0Thpoc3Z607WbS",
+          "name": "say_hello",
+          "response": {
+            "result": "Hello, Ayrton Denner!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c773809b-b961-4c9a-bc97-c2ccb254b90d",
+      "role": "greeting_and_farewell_agent",
+      "content": "Hello, Ayrton Denner!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "08c3c6bb-6bea-46f1-8d98-26884ada790b",
+      "role": "user",
+      "content": "is it cold now in the capital of japan? should I take my raincoat there?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "c23e4f9b-24d1-45f0-9612-40c80a91d03d",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_jEWW9sCHWRsLBTahGK1Mryuz",
+          "args": {
+            "agent_name": "weather_agent_v1"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "792a365a-0a1a-4dcf-a936-5a8534b6d071",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_jEWW9sCHWRsLBTahGK1Mryuz",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "3a6e97f3-8611-4c84-bdfe-16a3adcd5d9c",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_8JXdtP4eIff206npMbrNlI1I",
+          "args": {
+            "city": "Tokyo"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "b87e3d91-533d-473c-844c-a6ec385a3bd9",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_8JXdtP4eIff206npMbrNlI1I",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "Tokyo is experiencing light rain and a temperature of 18°C."
+          }
+        }
+      ]
+    },
+    {
+      "id": "6911debb-b945-446b-84f0-2a992ae5f3ec",
+      "role": "weather_agent_v1",
+      "content": "Currently in Tokyo (the capital of Japan), the temperature is 18°C with light rain. It is a bit cool, and since it’s raining, I recommend taking your raincoat if you go out.",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "6dc4f9fc-8aaa-46f4-85b2-4f46c7c7c2da",
+      "role": "user",
+      "content": "and what is the local time in London now?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "4e05d959-d6e3-4e92-9d16-8553c5dd205f",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_CzLHz5Jd9wR5I7JbOVXzBWfk",
+          "args": {
+            "agent_name": "local_time_agent_v1"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "e9dc400c-82e0-4838-8d80-4d0482ec9620",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_CzLHz5Jd9wR5I7JbOVXzBWfk",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "55241896-8fad-4a48-80f5-0382831d936e",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_cJrFIYKObHmQX3ofdOfwsJLA",
+          "args": {
+            "city": "London"
+          },
+          "name": "get_local_time"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "e9c60d2b-11fe-41cc-8469-eb4619ab3b16",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_cJrFIYKObHmQX3ofdOfwsJLA",
+          "name": "get_local_time",
+          "response": {
+            "status": "success",
+            "report": "The local time in London is 2026-01-07 23:56:14 (UTC+0)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "01b88fbb-112f-4ada-b4a3-b804ab0890ac",
+      "role": "local_time_agent_v1",
+      "content": "The local time in London is 23:56 (11:56 PM).",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "5b089348-ed71-4cb8-be7c-66d204bf7b53",
+      "role": "user",
+      "content": "ok, so how's the weather now for the city of angels?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "8b86c32f-4695-497d-a1b7-f7748f924e29",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_noO5Lp3c8XwnE7W9XAuSdC4Z",
+          "args": {
+            "agent_name": "weather_agent_v1"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "e905ba04-0551-4399-b1d3-3bb8d5ee18ed",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_noO5Lp3c8XwnE7W9XAuSdC4Z",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "e58f27bc-45ef-41e2-9a6f-a65ade274299",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_IAxwTdKKKkOFwkZMXDnVhlB2",
+          "args": {
+            "city": "Los Angeles"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "416b251a-6765-4ecc-94b8-3ed3c5a3ceec",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_IAxwTdKKKkOFwkZMXDnVhlB2",
+          "name": "get_weather",
+          "response": {
+            "status": "error",
+            "error_message": "Sorry, I don't have weather information for 'Los Angeles'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "335e9647-04b1-41c1-b713-4e72231abeca",
+      "role": "weather_agent_v1",
+      "content": "I'm sorry, but I currently don't have weather information for Los Angeles. If you need anything else or want to check the weather in another city, please let me know!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "1fe623f4-5841-49d9-8c2f-1a0aa74f94f8",
+      "role": "user",
+      "content": "and what about weather in the city that never sleeps? is it time to sleep there right now?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "c523aa63-3580-410e-993f-425afca1a7c9",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_0xGyAziqBLgJGTO7gjPSGFuQ",
+          "args": {
+            "city": "New York"
+          },
+          "name": "get_weather"
+        },
+        {
+          "id": "call_8P6dhnyP7f0NX8dBQ9JfRfzS",
+          "args": {
+            "agent_name": "local_time_agent_v1"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "9815e185-0802-454e-9df3-c6d462edc434",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_0xGyAziqBLgJGTO7gjPSGFuQ",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "The weather in New York is sunny with a temperature of 25°C."
+          }
+        },
+        {
+          "id": "call_8P6dhnyP7f0NX8dBQ9JfRfzS",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "fc73da7a-864c-45c8-bb5b-619a083ca349",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_1o532yySEUyRgQFP5te1tuZM",
+          "args": {
+            "city": "New York"
+          },
+          "name": "get_local_time"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "dc185f0d-6ecf-4b9a-b410-27ce8f038f00",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_1o532yySEUyRgQFP5te1tuZM",
+          "name": "get_local_time",
+          "response": {
+            "status": "success",
+            "report": "The local time in New York is 2026-01-07 18:56:23 (UTC-5)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "a9fc6e1c-141e-496e-9678-44aa7c4d3bb8",
+      "role": "local_time_agent_v1",
+      "content": "The weather in New York (the city that never sleeps) is sunny with a temperature of 25°C. The local time there is 18:56 (6:56 PM), so it’s early evening—probably not quite time to sleep yet!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "2f496ac9-502c-4ac3-b8e8-b294fb7c0a2c",
+      "role": "user",
+      "content": "and the weather for paris, do you have it?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "9c4b5e99-dbaf-45c0-a1ba-93097152a304",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_XBUYTjEERds8FbtyZZCJKzFY",
+          "args": {
+            "agent_name": "weather_agent_v1"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "54bb5b6e-0f32-42d6-a311-001e52b4c8e4",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_XBUYTjEERds8FbtyZZCJKzFY",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "34b8cebf-f684-4fa1-8f78-7bbcae242ccf",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_XmD2BBDkE6Zft6axBvI7CVbL",
+          "args": {
+            "city": "Paris"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "5e5bb081-bd9b-4508-b0c6-bc6f0c404ef0",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_XmD2BBDkE6Zft6axBvI7CVbL",
+          "name": "get_weather",
+          "response": {
+            "status": "error",
+            "error_message": "Sorry, I don't have weather information for 'Paris'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "c13cb020-ab44-4b55-8cf0-b28800fdd706",
+      "role": "weather_agent_v1",
+      "content": "I'm sorry, but I currently don't have weather information for Paris. If you need details for another city or have any other questions, please let me know!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "c3ca939f-2d1c-4541-a69e-7a3809e5ae7d",
+      "role": "user",
+      "content": "and for kyoto? how is it going there?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "b2d56ee1-ee41-4d65-a84a-cea8c8bced75",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_jqLuecXGmPe3ER1AL6tjvJSc",
+          "args": {
+            "city": "Kyoto"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "57972cdf-2edf-4f9f-aec7-944d17f9f6dc",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_jqLuecXGmPe3ER1AL6tjvJSc",
+          "name": "get_weather",
+          "response": {
+            "status": "error",
+            "error_message": "Sorry, I don't have weather information for 'Kyoto'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "78c1b209-43ad-4c5a-b144-cb89af0d351b",
+      "role": "weather_agent_v1",
+      "content": "I'm sorry, but I currently don't have weather information for Kyoto. If there's another city you'd like to check, or if you need help with something else, just let me know!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "7c87c7ab-47d4-4459-97a2-314527bb0dcd",
+      "role": "user",
+      "content": "isnt tokio and kyoto at the same country? how could you have data for one city but not another?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "4a6577da-4072-4369-8e34-d0f7f094f8ef",
+      "role": "weather_agent_v1",
+      "content": "Yes, both Tokyo and Kyoto are in Japan. Sometimes, weather data availability can vary based on the sources or services providing the information. It's possible that the weather service I access has detailed data for major capitals like Tokyo but limited or no data for other cities like Kyoto at this time.\n\nI apologize for the inconvenience! If you’d like, I can try to provide weather updates for other major cities or assist you with any other information you need.",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "641e2921-08d4-40dc-8940-91194364ad46",
+      "role": "user",
+      "content": "what was the first city we talked about again?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "98930fd9-edd5-427f-a5e2-4d63f32f424c",
+      "role": "weather_agent_v1",
+      "content": "The first city we talked about was Tokyo, the capital of Japan. You asked about the weather and whether you should take a raincoat there.",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "2676d3f5-015b-44a1-8b91-529b8eb91652",
+      "role": "user",
+      "content": "please give me a list of cities that we couldnt get the weather here in the conversation",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "ade114a2-1f55-4daa-ba59-879cbddacd8f",
+      "role": "weather_agent_v1",
+      "content": "Here are the cities we couldn’t get weather information for during this conversation:\n\n- Los Angeles\n- Paris\n- Kyoto\n\nIf you want to check the weather for any other cities or need assistance with something else, just let me know!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "ec841037-da73-412e-86f7-cae0c9a3352f",
+      "role": "user",
+      "content": "in fact, give me a list of all cities we discussed about",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "ca17a982-bdef-40af-89a7-e707f4704dee",
+      "role": "weather_agent_v1",
+      "content": "Here is a list of all the cities we discussed in this conversation:\n\n1. Tokyo\n2. London\n3. Los Angeles\n4. New York\n5. Paris\n6. Kyoto\n\nIf you’d like more information about any of these cities, feel free to ask!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "42e6a372-a0e6-4bcd-9fc7-c07a7e02434f",
+      "role": "user",
+      "content": "give me again climate and time in tokyo?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "4677993a-c3c9-42c6-949a-ca5e32d3110b",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_PWs7NTDHeDMgBjRbIh2faVDs",
+          "args": {
+            "city": "Tokyo"
+          },
+          "name": "get_weather"
+        },
+        {
+          "id": "call_RhLyfGl2P92R1plTzecHGsIC",
+          "args": {
+            "agent_name": "local_time_agent_v1"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "7302b894-83bb-4f07-ab2c-04f5ccd098f6",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_PWs7NTDHeDMgBjRbIh2faVDs",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "Tokyo is experiencing light rain and a temperature of 18°C."
+          }
+        },
+        {
+          "id": "call_RhLyfGl2P92R1plTzecHGsIC",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "0083449e-bfe8-4af9-80bd-058dc25ea050",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_pGUdAR187Giw2Ecg5bN2SNr3",
+          "args": {
+            "city": "Tokyo"
+          },
+          "name": "get_local_time"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "2c5763e7-ccef-4626-ab1f-bbd2b3bf8d90",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_pGUdAR187Giw2Ecg5bN2SNr3",
+          "name": "get_local_time",
+          "response": {
+            "status": "success",
+            "report": "The local time in Tokyo is 2026-01-08 08:56:39 (UTC+9)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "83ccf961-a79e-4a00-9835-3f9d7eee2d00",
+      "role": "local_time_agent_v1",
+      "content": "Tokyo is currently experiencing light rain with a temperature of 18°C. The local time in Tokyo is 08:56 (8:56 AM).",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "6862c047-e750-454f-a3f9-a019528fa298",
+      "role": "user",
+      "content": "ok thkx bye bye!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "a1251faa-c3e9-41f9-9a44-d47857f89c1e",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_WNkW9PPYEfcTpqdgpYSyqcS4",
+          "args": {
+            "agent_name": "greeting_and_farewell_agent"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "4500fc8f-1af5-4341-8bd8-6d25ab8cd5f2",
+      "role": "local_time_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_WNkW9PPYEfcTpqdgpYSyqcS4",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "baaab7ca-7970-4fcb-ad5d-0d7399d14f3b",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_lQk0mpfvhIQG5SaqOCokVCKi",
+          "args": {},
+          "name": "say_goodbye"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "7b0275f7-0b2b-47bf-8c4f-3c8359d79806",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_lQk0mpfvhIQG5SaqOCokVCKi",
+          "name": "say_goodbye",
+          "response": {
+            "result": "Goodbye! Have a great night."
+          }
+        }
+      ]
+    },
+    {
+      "id": "bbf83026-79e7-4716-b076-0cf241bac8fd",
+      "role": "greeting_and_farewell_agent",
+      "content": "Goodbye! Have a great night.",
+      "function_calls": [],
+      "function_responses": []
+    }
+  ]
+}
