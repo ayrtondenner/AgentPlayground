@@ -1,0 +1,272 @@
+{
+  "state": {
+    "app_name": "weather_tutorial_app",
+    "session_id": "95a2ed2c-3b53-4df7-a83c-5d935c36ea8d",
+    "user_id": "1",
+    "user_name": "Ayrton Denner",
+    "user_email": "ayrtondenner_2013@hotmail.com"
+  },
+  "conversation": [
+    {
+      "id": "0f29bd73-2db1-48b4-943f-c69e4d3f07ec",
+      "role": "user",
+      "content": "hi!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "f5c789fd-fd72-4eda-95f9-d9c8a3b0dab4",
+      "role": "root_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_8vI2jPxfbrqh2X4654aYhXlI",
+          "args": {
+            "agent_name": "greeting_and_farewell_agent"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "8e782243-bb08-432d-aa09-f54eb9c354aa",
+      "role": "root_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_8vI2jPxfbrqh2X4654aYhXlI",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "398a7188-f49b-4e29-a58c-2ac8195c10f5",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_cIBklj1dJmKLu7giFO7pbMKa",
+          "args": {},
+          "name": "say_hello"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "4154792f-9ac2-4975-9f36-73c4ab49d8f9",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_cIBklj1dJmKLu7giFO7pbMKa",
+          "name": "say_hello",
+          "response": {
+            "result": "Hello there!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4e045f8b-d69c-4281-9811-1733efa85da6",
+      "role": "greeting_and_farewell_agent",
+      "content": "Hello there!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "b3402ce9-4af6-4a9a-b841-89eca8e8a478",
+      "role": "user",
+      "content": "how is weather in tokyo? do we have hard or light rain down there?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "ad5cd034-fdb5-41e6-9910-1d9e7bc3d255",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_twacrzLZYMcbe93W71KMxOl9",
+          "args": {
+            "agent_name": "weather_agent_v1"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "a0016982-37dc-47a1-8801-19e7d22c8cd2",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_twacrzLZYMcbe93W71KMxOl9",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "85b5df17-df8f-4e26-b59a-beae2dd18e67",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_Er5AHhx1wuH3dCEnQsmsjnCl",
+          "args": {
+            "city": "Tokyo"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "7d449231-b291-4345-82c7-5bfd47ee28d7",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_Er5AHhx1wuH3dCEnQsmsjnCl",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "Tokyo is experiencing light rain and a temperature of 18°C."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b9bb35d9-0df6-4d8e-8bcd-374011282948",
+      "role": "weather_agent_v1",
+      "content": "The weather in Tokyo is currently light rain with a temperature of 18°C. So, it is not experiencing heavy rain at the moment—just light rain. Let me know if you need more details or a forecast!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "6926ec28-7bb2-43ce-a148-32286934635c",
+      "role": "user",
+      "content": "hello!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "3578c4e4-41b9-44e9-8aa9-241aae97dfc8",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_ydSykGnBUnDYleNROuFpvx7x",
+          "args": {
+            "agent_name": "greeting_and_farewell_agent"
+          },
+          "name": "transfer_to_agent"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "7f784c85-0fac-4a2d-9c8b-83d9e2d5cfd6",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_ydSykGnBUnDYleNROuFpvx7x",
+          "name": "transfer_to_agent",
+          "response": {
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "057de998-158d-462b-842a-a7775c196057",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_Gr8WSZjfVSKmMxKsbtSp6Vbm",
+          "args": {},
+          "name": "say_hello"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "cbcbbba4-5d4d-4fa4-b303-23086d2750ba",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_Gr8WSZjfVSKmMxKsbtSp6Vbm",
+          "name": "say_hello",
+          "response": {
+            "result": "Hello there!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0847b470-17ce-4d59-b3f0-49805a98ee0e",
+      "role": "greeting_and_farewell_agent",
+      "content": "Hello there!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "09d8b021-b98c-42e4-a7e6-bf4113b40d67",
+      "role": "user",
+      "content": "bye bye!",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "2dd95b1f-27a4-469b-b6eb-d34d1e49ecb5",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_slmrtRkGDg08U3ddAqAGXMGq",
+          "args": {},
+          "name": "say_goodbye"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "27083a6c-14b7-4787-93db-b1b8cc298f0f",
+      "role": "greeting_and_farewell_agent",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_slmrtRkGDg08U3ddAqAGXMGq",
+          "name": "say_goodbye",
+          "response": {
+            "result": "Goodbye! Have a great afternoon."
+          }
+        }
+      ]
+    },
+    {
+      "id": "84bff9b5-8d15-4861-a9d6-61a7de64bddc",
+      "role": "greeting_and_farewell_agent",
+      "content": "Goodbye! Have a great afternoon.",
+      "function_calls": [],
+      "function_responses": []
+    }
+  ]
+}

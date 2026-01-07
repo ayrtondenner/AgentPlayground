@@ -84,16 +84,21 @@ async def _save_session_conversation(runner: Runner, app_name: str, user_id: str
 
 async def call_agent_async(
     *, query: str, runner: Runner, user_id: str, session_id: str
-) -> None:
-    """Send a query to the agent and print the final response."""
+) -> list[Any]:
+    """Send a query to the agent, print the final response, and return all events.
+
+    Returns a list of events yielded by the runner for this turn.
+    """
     print(f"\n>>> User Query: {query}")
 
     content = types.Content(role="user", parts=[types.Part(text=query)])
     final_response_text = "Agent did not produce a final response."
+    conversation_events: list[Any] = []
 
     async for event in runner.run_async(
         user_id=user_id, session_id=session_id, new_message=content
     ):
+        conversation_events.append(event)
         if event.is_final_response():
             if event.content and event.content.parts:
                 final_response_text = event.content.parts[0].text
@@ -104,6 +109,7 @@ async def call_agent_async(
             break
 
     print(f"<<< Agent Response: {final_response_text}")
+    return conversation_events
 
 
 async def run_conversation(*, runner: Runner, app_name: str, user_id: str, session_id: str) -> None:
@@ -117,15 +123,27 @@ async def run_conversation(*, runner: Runner, app_name: str, user_id: str, sessi
         if not query:
             continue
 
-        # TODO: update exit to use 'say_goodbye' instead of these stopwords
-        if query.lower() in {"exit", "quit"}:
-            print("Exiting conversation.")
-            await _save_session_conversation(runner, app_name, user_id, session_id)
-            return
-
-        await call_agent_async(
+        conversation_events = await call_agent_async(
             query=query,
             runner=runner,
             user_id=user_id,
             session_id=session_id,
         )
+
+        has_goodbye_call = False
+        has_goodbye_response = False
+
+        for ev in conversation_events:
+            if ev.author == "greeting_and_farewell_agent":
+                for part in ev.content.parts:
+                    if hasattr(part, "function_call") and part.function_call is not None\
+                        and part.function_call.name == "say_goodbye":
+                        has_goodbye_call = True
+                    if hasattr(part, "function_response") and part.function_response is not None\
+                        and part.function_response.name == "say_goodbye":
+                        has_goodbye_response = True
+
+        if has_goodbye_call and has_goodbye_response:
+            print("Agent said goodbye. Ending conversation.")
+            await _save_session_conversation(runner, app_name, user_id, session_id)
+            return

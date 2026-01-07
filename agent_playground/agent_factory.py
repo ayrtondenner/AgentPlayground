@@ -9,6 +9,8 @@ from tools import get_weather, say_hello, say_goodbye
 # TODO: add an agent to get the capital of a country, using an online API
 # TODO: check if weather can be extracted via online API
 
+
+# TODO: remove root agent, since next response always start with last selected agent
 def build_root_agent(settings: Settings) -> Agent:
     """Create the root ADK Agent instance.
 
