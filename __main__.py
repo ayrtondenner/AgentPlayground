@@ -84,20 +84,28 @@ async def call_agent_async(query: str, runner, user_id, session_id):
   print(f"<<< Agent Response: {final_response_text}")
 
 async def run_conversation():
-    await call_agent_async("What is the weather like in London?",
-                                       runner=runner,
-                                       user_id=USER_ID,
-                                       session_id=SESSION_ID)
+    print("\nType your message and press Enter. Type 'exit' or 'quit' to stop.")
 
-    await call_agent_async("How about Paris?",
-                                       runner=runner,
-                                       user_id=USER_ID,
-                                       session_id=SESSION_ID) # Expecting the tool's error message
+    while True:
+        # input() is blocking, so run it in a worker thread.
+        query = await asyncio.to_thread(input, ">>> You: ")
+        query = (query or "").strip()
 
-    await call_agent_async("Tell me the weather in New York",
-                                       runner=runner,
-                                       user_id=USER_ID,
-                                       session_id=SESSION_ID)
+        # if empty query, prompt again
+        if not query:
+            continue
+
+        # stop words
+        if query.lower() in {"exit", "quit"}:
+            print("Exiting conversation.")
+            return
+
+        await call_agent_async(
+            query,
+            runner=runner,
+            user_id=USER_ID,
+            session_id=SESSION_ID,
+        )
 
 
 if __name__ == "__main__":
