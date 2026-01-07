@@ -25,6 +25,38 @@ def _load_test_inputs() -> list[str]:
         print(f"Failed to read test inputs from {test_file}: {exc}")
         return []
     
+def _detect_goodbye_calls(conversation_events: list[Event]) -> bool:
+    """
+    Check whether a conversation contains both a goodbye function call and its corresponding response.
+    This function scans a list of Event objects produced by the "greeting_and_farewell_agent".
+    Within each event's content parts, it searches for:
+    - a function_call with name "say_goodbye"
+    - a function_response with name "say_goodbye"
+    It returns True only if at least one "say_goodbye" function call and at least one
+    matching "say_goodbye" function response are present anywhere in the provided events;
+    otherwise, it returns False.
+    Parameters:
+    - conversation_events (list[Event]): The sequence of conversation events to inspect. Each Event
+        should have an `author`, `content`, and `content.parts`. Each part may optionally contain
+        `function_call` or `function_response` objects with a `name` attribute.
+    Returns:
+    - bool: True if both a "say_goodbye" call and response are found; False otherwise.
+    """
+    has_goodbye_call = False
+    has_goodbye_response = False
+
+    for ev in conversation_events:
+        if ev.author == "greeting_and_farewell_agent" and ev.content and ev.content.parts:
+            for part in ev.content.parts:
+                if hasattr(part, "function_call") and part.function_call is not None\
+                        and part.function_call.name == "say_goodbye":
+                    has_goodbye_call = True
+                if hasattr(part, "function_response") and part.function_response is not None\
+                        and part.function_response.name == "say_goodbye":
+                    has_goodbye_response = True
+
+    return has_goodbye_call and has_goodbye_response
+    
 async def _save_session_conversation(runner: Runner, app_name: str, user_id: str, session_id: str, test: bool = False) -> None:
     """Placeholder for saving session conversation if needed."""
     try:
@@ -156,20 +188,9 @@ async def run_conversation(*, runner: Runner, app_name: str, user_id: str, sessi
         )
 
         # If we detect a goodbye from the agent, we end the conversation
-        has_goodbye_call = False
-        has_goodbye_response = False
+        is_agent_goodbye = _detect_goodbye_calls(conversation_events)
 
-        for ev in conversation_events:
-            if ev.author == "greeting_and_farewell_agent" and ev.content and ev.content.parts:
-                for part in ev.content.parts:
-                    if hasattr(part, "function_call") and part.function_call is not None\
-                        and part.function_call.name == "say_goodbye":
-                        has_goodbye_call = True
-                    if hasattr(part, "function_response") and part.function_response is not None\
-                        and part.function_response.name == "say_goodbye":
-                        has_goodbye_response = True
-
-        if has_goodbye_call and has_goodbye_response:
+        if is_agent_goodbye:
             print("Agent said goodbye. Ending conversation.")
             await _save_session_conversation(runner, app_name, user_id, session_id, test=test)
             return
