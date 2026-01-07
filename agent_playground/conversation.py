@@ -26,21 +26,23 @@ def _load_test_inputs() -> list[str]:
         return []
     
 def _detect_goodbye_calls(conversation_events: list[Event]) -> bool:
-    """
-    Check whether a conversation contains both a goodbye function call and its corresponding response.
+    """Check whether a conversation contains both a goodbye function call and its corresponding response.
     This function scans a list of Event objects produced by the "greeting_and_farewell_agent".
     Within each event's content parts, it searches for:
     - a function_call with name "say_goodbye"
     - a function_response with name "say_goodbye"
+
     It returns True only if at least one "say_goodbye" function call and at least one
     matching "say_goodbye" function response are present anywhere in the provided events;
     otherwise, it returns False.
-    Parameters:
-    - conversation_events (list[Event]): The sequence of conversation events to inspect. Each Event
-        should have an `author`, `content`, and `content.parts`. Each part may optionally contain
-        `function_call` or `function_response` objects with a `name` attribute.
+
+    Args:
+        conversation_events (list[Event]): The sequence of conversation events to inspect. Each Event
+            should have an `author`, `content`, and `content.parts`. Each part may optionally contain
+            `function_call` or `function_response` objects with a `name` attribute.
+
     Returns:
-    - bool: True if both a "say_goodbye" call and response are found; False otherwise.
+        bool: True if both a "say_goodbye" call and response are found; False otherwise.
     """
     has_goodbye_call = False
     has_goodbye_response = False

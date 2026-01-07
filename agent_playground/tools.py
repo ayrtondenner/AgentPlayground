@@ -1,6 +1,8 @@
 from typing import Optional
 from datetime import datetime
 
+from google.adk.tools.tool_context import ToolContext
+
 def get_weather(city: str) -> dict:
     """Retrieves the current weather report for a specified city.
 
@@ -38,21 +40,29 @@ def get_weather(city: str) -> dict:
         "error_message": f"Sorry, I don't have weather information for '{city}'.",
     }
 
-def say_hello(name: Optional[str] = None) -> str:
-    """Provides a simple greeting. If a name is provided, it will be used.
+def say_hello(tool_context: ToolContext, name: Optional[str] = None) -> str:
+    """Provides a simple greeting.
+    If a name is provided, it will be used. Defaults to a generic greeting if not provided.
+
+    Name resolution order (most specific to least specific):
+    1) Use the explicit `name` argument (typically extracted from the user's message).
+    2) Otherwise, fall back to `tool_context.state["user_name"]`.
 
     Args:
-        name (str, optional): The name of the person to greet. Defaults to a generic greeting if not provided.
+        name (str, optional): The name of the person to greet.
+            If omitted, the tool will attempt to use `tool_context.state["user_name"]`.
 
     Returns:
         str: A friendly greeting message.
     """
+    name = name or tool_context.state.get("user_name", None)
+
     if name:
         greeting = f"Hello, {name}!"
         print(f"--- Tool: say_hello called with name: {name} ---")
     else:
         greeting = "Hello there!" # Default greeting if name is None or not explicitly passed
-        print(f"--- Tool: say_hello called without a specific name (name_arg_value: {name}) ---")
+        print("--- Tool: say_hello called without a specific name ---")
     return greeting
 
 def say_goodbye() -> str:

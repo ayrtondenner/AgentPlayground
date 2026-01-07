@@ -51,7 +51,6 @@ def build_weather_agent(settings: Settings) -> Agent:
         tools=[get_weather],
     )
 
-# TODO: fix 'say_hello' to accept name from session state if not provided in the query
 def build_greeting_and_farewell_agent(settings: Settings) -> Agent:
     """Create a combined greeting and farewell ADK Agent instance.
 
