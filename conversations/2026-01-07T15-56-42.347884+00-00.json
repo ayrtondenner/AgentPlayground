@@ -1,0 +1,45 @@
+{
+  "state": {},
+  "conversation": [
+    {
+      "id": "cb712863-de00-4630-b538-b899dd5d01a7",
+      "role": "user",
+      "content": "whats the weather now in NY?"
+    },
+    {
+      "id": "04f2ba4f-bc2e-43e4-9b31-5e33ed17856e",
+      "role": "weather_agent_v1",
+      "content": "None"
+    },
+    {
+      "id": "6d1ac7f9-e8dd-4a32-a2cb-170f8b4fc812",
+      "role": "weather_agent_v1",
+      "content": "None"
+    },
+    {
+      "id": "0875bd1e-051d-4403-8fe3-1e75a2a75fe8",
+      "role": "weather_agent_v1",
+      "content": "The weather in New York right now is sunny with a temperature of 25°C. Let me know if you need more details!"
+    },
+    {
+      "id": "549132a5-6f1f-43e7-ac1d-41aadf76192a",
+      "role": "user",
+      "content": "and what about london?"
+    },
+    {
+      "id": "227e39f6-af07-41d7-97e9-d0ea58739f83",
+      "role": "weather_agent_v1",
+      "content": "None"
+    },
+    {
+      "id": "2e102d61-cc8c-46eb-8f5a-d68fea147b70",
+      "role": "weather_agent_v1",
+      "content": "None"
+    },
+    {
+      "id": "f38b4abf-5b48-4a4e-848a-195e21b9de25",
+      "role": "weather_agent_v1",
+      "content": "It's currently cloudy in London with a temperature of 15°C. If you need a more detailed forecast or information about a different city, just let me know!"
+    }
+  ]
+}

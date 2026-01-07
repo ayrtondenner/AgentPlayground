@@ -1,0 +1,95 @@
+{
+  "state": {},
+  "conversation": [
+    {
+      "id": "a580a818-29da-48b3-8a14-7776c8c43dc0",
+      "role": "user",
+      "content": "whats the weather now in NYC?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "c6a1590e-7f18-4b32-a04e-b3da8089a9e8",
+      "role": "weather_agent_v1",
+      "content": "None",
+      "function_calls": [
+        {
+          "id": "call_72q13o2MWiA9rFcFSSw6XRIe",
+          "args": {
+            "city": "New York"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "db7e5aab-b863-458b-9c7a-7e1bf891e5a4",
+      "role": "weather_agent_v1",
+      "content": "None",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_72q13o2MWiA9rFcFSSw6XRIe",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "The weather in New York is sunny with a temperature of 25°C."
+          }
+        }
+      ]
+    },
+    {
+      "id": "07bc3539-490e-479e-a462-444b589fed62",
+      "role": "weather_agent_v1",
+      "content": "The weather in New York City is currently sunny with a temperature of 25°C.",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "16b6075f-7f45-498c-b82c-06276cafe8b1",
+      "role": "user",
+      "content": "and what about london?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "26cbe611-119c-4cfa-ae05-3bc22cd6e8c9",
+      "role": "weather_agent_v1",
+      "content": "None",
+      "function_calls": [
+        {
+          "id": "call_5sRRtVt5HN83ciotWSS2tYQx",
+          "args": {
+            "city": "London"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "dcb0c310-f1c5-4a20-bb25-3bd574426c06",
+      "role": "weather_agent_v1",
+      "content": "None",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_5sRRtVt5HN83ciotWSS2tYQx",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "It's cloudy in London with a temperature of 15°C."
+          }
+        }
+      ]
+    },
+    {
+      "id": "f1b16cf1-4849-4010-a5b0-03a12103d277",
+      "role": "weather_agent_v1",
+      "content": "It's cloudy in London right now, with a temperature of 15°C.",
+      "function_calls": [],
+      "function_responses": []
+    }
+  ]
+}

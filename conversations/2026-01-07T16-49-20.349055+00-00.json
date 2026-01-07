@@ -1,0 +1,160 @@
+{
+  "state": {
+    "app_name": "weather_tutorial_app",
+    "session_id": "5c624867-658c-4482-bc48-39a00cbda85b",
+    "user_id": "1",
+    "user_name": "Ayrton Denner",
+    "user_email": "ayrtondenner_2013@hotmail.com"
+  },
+  "conversation": [
+    {
+      "id": "9d2705e3-c782-460a-af72-544e81e4ad2f",
+      "role": "user",
+      "content": "is it raining now in Tokyo?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "dfa4bb5d-88e4-4c7f-833c-cbd7099f3420",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_nszPrtd1A1wLxWnPdeQsT5TT",
+          "args": {
+            "city": "Tokyo"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "6679d6f9-c350-496b-8157-ffeb0f8617a0",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_nszPrtd1A1wLxWnPdeQsT5TT",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "Tokyo is experiencing light rain and a temperature of 18°C."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ee410d1e-df70-4e21-b691-dd69fe52fca8",
+      "role": "weather_agent_v1",
+      "content": "Yes, it is currently raining in Tokyo. There is light rain and the temperature is 18°C.",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "776fc38b-30d2-4f2d-9ba3-409297bd0f2f",
+      "role": "user",
+      "content": "and what about london? is raining there as well?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "6f2865a4-12ca-476d-83cf-a9549b5397ec",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_Qo2IAuJjahNzZi3zSlZFurBC",
+          "args": {
+            "city": "London"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "8e9640fe-3c36-4e92-9310-cf25c9b45c38",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_Qo2IAuJjahNzZi3zSlZFurBC",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "It's cloudy in London with a temperature of 15°C."
+          }
+        }
+      ]
+    },
+    {
+      "id": "d91bb2d0-2ff6-4141-9bb3-b424ca0de4f7",
+      "role": "weather_agent_v1",
+      "content": "No, it is not raining in London at the moment. It is cloudy with a temperature of 15°C.",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "7e1702fb-779d-4997-adc3-a86c583fceb3",
+      "role": "user",
+      "content": "and what about ny? how is the weather? is it cloudy over there?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "da7180a9-7142-47ce-b90b-5695388bb3e7",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_fqtteBReThb1tNO0FPxVSxZN",
+          "args": {
+            "city": "New York"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "bc1357a0-5b7d-497d-9600-1c94ecab968c",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_fqtteBReThb1tNO0FPxVSxZN",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "The weather in New York is sunny with a temperature of 25°C."
+          }
+        }
+      ]
+    },
+    {
+      "id": "7093faae-2e0c-47d9-948f-6fc1ce0f6965",
+      "role": "weather_agent_v1",
+      "content": "The weather in New York is currently sunny with a temperature of 25°C, so it is not cloudy there.",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "2a80e95d-f098-45df-86ce-e73f24a60309",
+      "role": "user",
+      "content": "how is the rain now in Tokyo? Is it like a storm?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "7f2c800f-636e-4c4e-8a8b-40814a3fb5ad",
+      "role": "weather_agent_v1",
+      "content": "The rain in Tokyo right now is described as light rain, not a storm. So, it’s not severe—just a gentle rainfall.",
+      "function_calls": [],
+      "function_responses": []
+    }
+  ]
+}

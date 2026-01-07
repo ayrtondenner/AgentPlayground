@@ -1,0 +1,56 @@
+{
+  "state": {
+    "app_name": "weather_tutorial_app",
+    "session_id": "session_001",
+    "user_id": "user_1",
+    "user_name": "Ayrton Denner",
+    "user_email": "ayrtondenner_2013@hotmail.com"
+  },
+  "conversation": [
+    {
+      "id": "3ed9ce39-1bd6-465c-9a6c-7437bbff721b",
+      "role": "user",
+      "content": "whats the weather in NYC?",
+      "function_calls": [],
+      "function_responses": []
+    },
+    {
+      "id": "c659333b-5fac-4e2c-9c75-eb70fe65bcca",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [
+        {
+          "id": "call_YsjVuHvjcnGgyrHPGrQdDzOp",
+          "args": {
+            "city": "New York"
+          },
+          "name": "get_weather"
+        }
+      ],
+      "function_responses": []
+    },
+    {
+      "id": "3c805032-e139-4676-820f-3b152f6c03b7",
+      "role": "weather_agent_v1",
+      "content": "",
+      "function_calls": [],
+      "function_responses": [
+        {
+          "id": "call_YsjVuHvjcnGgyrHPGrQdDzOp",
+          "name": "get_weather",
+          "response": {
+            "status": "success",
+            "report": "The weather in New York is sunny with a temperature of 25°C."
+          }
+        }
+      ]
+    },
+    {
+      "id": "062e7fac-a2a4-4c0b-be85-c3a0c2a2f783",
+      "role": "weather_agent_v1",
+      "content": "The weather in New York City is currently sunny with a temperature of 25°C.",
+      "function_calls": [],
+      "function_responses": []
+    }
+  ]
+}
