@@ -6,6 +6,7 @@ from typing import Any
 
 from google.adk.runners import Runner
 from google.adk.sessions import Session
+from google.adk.events import Event
 from google.genai import types
 import json
 import os
@@ -84,7 +85,7 @@ async def _save_session_conversation(runner: Runner, app_name: str, user_id: str
 
 async def call_agent_async(
     *, query: str, runner: Runner, user_id: str, session_id: str
-) -> list[Any]:
+) -> list[Event]:
     """Send a query to the agent, print the final response, and return all events.
 
     Returns a list of events yielded by the runner for this turn.
@@ -93,7 +94,7 @@ async def call_agent_async(
 
     content = types.Content(role="user", parts=[types.Part(text=query)])
     final_response_text = "Agent did not produce a final response."
-    conversation_events: list[Any] = []
+    conversation_events: list[Event] = []
 
     async for event in runner.run_async(
         user_id=user_id, session_id=session_id, new_message=content
@@ -123,6 +124,7 @@ async def run_conversation(*, runner: Runner, app_name: str, user_id: str, sessi
         if not query:
             continue
 
+        # This return only the events for this turn
         conversation_events = await call_agent_async(
             query=query,
             runner=runner,
@@ -134,7 +136,7 @@ async def run_conversation(*, runner: Runner, app_name: str, user_id: str, sessi
         has_goodbye_response = False
 
         for ev in conversation_events:
-            if ev.author == "greeting_and_farewell_agent":
+            if ev.author == "greeting_and_farewell_agent" and ev.content and ev.content.parts:
                 for part in ev.content.parts:
                     if hasattr(part, "function_call") and part.function_call is not None\
                         and part.function_call.name == "say_goodbye":
