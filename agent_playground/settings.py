@@ -7,8 +7,10 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class Settings:
     app_name: str = "weather_tutorial_app"
-    user_id: str = "user_1"
     session_id: str = "session_001"
+    user_id: str = "user_1"
+    user_name: str = "Ayrton Denner"
+    user_email: str = "ayrtondenner_2013@hotmail.com"
 
     openai_api_key: str = os.getenv("OPENAI_API_KEY", "")
     openai_model: str = os.getenv("OPENAI_MODEL", "")

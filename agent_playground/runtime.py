@@ -14,6 +14,15 @@ async def init_session(
         user_id=settings.user_id,
         session_id=settings.session_id,
     )
+
+    # TODO: fix session state
+    session.state = {
+        "app_name": settings.app_name,
+        "session_id": settings.session_id,
+        "user_id": settings.user_id,
+        "user_name": settings.user_name,
+        "user_email": settings.user_email,
+    }
     print(
         f"Session created: App='{settings.app_name}', User='{settings.user_id}', Session='{settings.session_id}'"
     )

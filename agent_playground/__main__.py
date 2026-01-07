@@ -22,6 +22,7 @@ async def async_main() -> None:
 
     await run_conversation(
         runner=runner,
+        app_name=settings.app_name,
         user_id=settings.user_id,
         session_id=settings.session_id,
     )
