@@ -10,6 +10,7 @@ from conversation import run_conversation
 from runtime import build_runner, init_session
 from settings import Settings
 
+# TODO: generate requirements.txt, environment.yml
 
 async def async_main(*, test: bool = False) -> None:
     settings = Settings()
