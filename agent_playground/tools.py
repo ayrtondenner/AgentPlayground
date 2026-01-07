@@ -1,4 +1,5 @@
 from typing import Optional
+from datetime import datetime
 
 def get_weather(city: str) -> dict:
     """Retrieves the current weather report for a specified city.
@@ -57,4 +58,12 @@ def say_hello(name: Optional[str] = None) -> str:
 def say_goodbye() -> str:
     """Provides a simple farewell message to conclude the conversation."""
     print("--- Tool: say_goodbye called ---")
-    return "Goodbye! Have a great day."
+    hour = datetime.now().hour
+    if hour < 12:
+        part_of_day = "morning"
+    elif hour < 18:
+        part_of_day = "afternoon"
+    else:
+        part_of_day = "night"
+
+    return f"Goodbye! Have a great {part_of_day}."

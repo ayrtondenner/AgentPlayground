@@ -117,6 +117,7 @@ async def run_conversation(*, runner: Runner, app_name: str, user_id: str, sessi
         if not query:
             continue
 
+        # TODO: update exit to use 'say_goodbye' instead of these stopwords
         if query.lower() in {"exit", "quit"}:
             print("Exiting conversation.")
             await _save_session_conversation(runner, app_name, user_id, session_id)

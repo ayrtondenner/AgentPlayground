@@ -4,7 +4,7 @@ import asyncio
 
 from google.adk.sessions import InMemorySessionService
 
-from agent_factory import build_weather_agent
+from agent_factory import build_root_agent
 from conversation import run_conversation
 from runtime import build_runner, init_session
 from settings import Settings
@@ -14,7 +14,7 @@ async def async_main() -> None:
     settings = Settings()
     settings.validate()
 
-    agent = build_weather_agent(settings)
+    agent = build_root_agent(settings)
     session_service = InMemorySessionService()
 
     await init_session(session_service=session_service, settings=settings)

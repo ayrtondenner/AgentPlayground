@@ -9,6 +9,28 @@ from tools import get_weather, say_hello, say_goodbye
 # TODO: add an agent to get the capital of a country, using an online API
 # TODO: check if weather can be extracted via online API
 
+def build_root_agent(settings: Settings) -> Agent:
+    """Create the root ADK Agent instance.
+
+    Kept as a factory so importing modules doesn't create side effects.
+    """
+    return Agent(
+        name="root_agent",
+        model=LiteLlm(model=settings._openai_model),
+        description="The root agent that delegates to sub-agents.",
+        instruction=
+"""You are the root agent. You are the main coordinator of the conversation.
+You are coordinating a team. Your primary responsibility is to provide weather information.
+Your task is to delegate user requests to the appropriate agent.
+You have specialized sub-agents:
+1) The 'weather_agent_v1' which provides weather information for specific cities.
+2) The 'greeting_and_farewell_agent' which handles greetings ('hi', 'hello') and farewells ('bye', 'see you').
+Analyze the user's query. If it's a weather request, delegate it to the 'weather_agent_v1'.
+If it's a greeting or farewell, delegate it to the 'greeting_and_farewell_agent'.
+For anything else, respond appropriately or state you cannot handle it""",
+        sub_agents=[build_weather_agent(settings), build_greeting_and_farewell_agent(settings)],
+    )
+
 
 def build_weather_agent(settings: Settings) -> Agent:
     """Create the ADK Agent instance.
@@ -29,6 +51,7 @@ def build_weather_agent(settings: Settings) -> Agent:
         tools=[get_weather],
     )
 
+# TODO: fix 'say_hello' to accept name from session state if not provided in the query
 def build_greeting_and_farewell_agent(settings: Settings) -> Agent:
     """Create a combined greeting and farewell ADK Agent instance.
 
@@ -39,6 +62,8 @@ def build_greeting_and_farewell_agent(settings: Settings) -> Agent:
         name="greeting_and_farewell_agent",
         instruction="You are the 'Greetings and Farewell Agent'. Your tasks are to provide friendly greetings and polite farewells to the user. "
                     "Use the 'say_hello' tool to generate greetings when the user initiates conversation or says hello. "
+                    "For 'say_hello', if the user provides their name, make sure to pass it to the tool. "
+                    "Otherwise, try to get from property 'user_name' by session stored state if available. "
                     "Use the 'say_goodbye' tool when the user indicates they are leaving or ending the conversation "
                     "(e.g., using words like 'bye', 'goodbye', 'thanks bye', 'see you'). "
                     "If the user provides their name during greeting, make sure to pass it to the 'say_hello' tool. "
