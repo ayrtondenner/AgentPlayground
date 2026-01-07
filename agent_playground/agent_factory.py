@@ -6,10 +6,6 @@ from google.adk.models.lite_llm import LiteLlm
 from settings import Settings
 from tools import get_weather, say_hello, say_goodbye
 
-# TODO: add an agent to get the capital of a country, using an online API
-# TODO: check if weather can be extracted via online API
-
-
 # TODO: remove root agent, since next response always start with last selected agent
 def build_root_agent(settings: Settings) -> Agent:
     """Create the root ADK Agent instance.
@@ -33,7 +29,7 @@ For anything else, respond appropriately or state you cannot handle it""",
         sub_agents=[build_weather_agent(settings), build_greeting_and_farewell_agent(settings)],
     )
 
-
+# TODO: check if weather can be extracted via online API
 def build_weather_agent(settings: Settings) -> Agent:
     """Create the ADK Agent instance.
 

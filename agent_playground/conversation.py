@@ -13,6 +13,30 @@ import os
 
 _CONVERSATIONS_FOLDER = "conversations"
 
+def _load_test_inputs() -> list[str]:
+    """Load test inputs from a predefined list or file."""
+    test_file = os.path.join(os.path.dirname(__file__), "test_input.txt")
+
+    try:
+        with open(test_file, "r", encoding="utf-8") as f:
+            lines = f.read().splitlines()
+        return lines
+    except Exception as exc:
+        print(f"Failed to read test inputs from {test_file}: {exc}")
+        return []
+    
+async def _save_session_conversation(runner: Runner, app_name: str, user_id: str, session_id: str, test: bool = False) -> None:
+    """Placeholder for saving session conversation if needed."""
+    try:
+        session = await get_session(runner, app_name, user_id, session_id)
+
+        conversation_result = get_session_conversation(session)
+
+        save_session_conversation(session.last_update_time, conversation_result, test)
+
+    except Exception as exc:
+        print(f"Failed to retrieve session: {exc}")
+
 async def get_session(runner: Runner, app_name: str, user_id: str, session_id: str) -> Session:
     session = await runner.session_service.get_session(
         app_name=app_name, user_id=user_id, session_id=session_id
@@ -57,10 +81,13 @@ def get_session_conversation(session: Session):
 
     return conversation_result
 
-def save_session_conversation(session_last_update_time: float, conversation_result: dict[str, Any]) -> None:
+def save_session_conversation(session_last_update_time: float, conversation_result: dict[str, Any], test: bool = False) -> None:
     session_last_update_time_formatted = datetime.fromtimestamp(session_last_update_time, tz=timezone.utc).isoformat()
 
-    filename = f"{_CONVERSATIONS_FOLDER}/{session_last_update_time_formatted}.json"
+    # Examples:
+    # If test:      2026-01-07T18-15-39.656681+00-00_TEST.json
+    # If not test:  2026-01-07T18-15-39.656681+00-00.json
+    filename = f"{_CONVERSATIONS_FOLDER}/{session_last_update_time_formatted}{'_TEST' if test else ''}.json"
 
     # Ensure folder exists
     os.makedirs(_CONVERSATIONS_FOLDER, exist_ok=True)
@@ -70,18 +97,6 @@ def save_session_conversation(session_last_update_time: float, conversation_resu
 
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(conversation_result, f, indent=2, ensure_ascii=False)
-
-async def _save_session_conversation(runner: Runner, app_name: str, user_id: str, session_id: str) -> None:
-    """Placeholder for saving session conversation if needed."""
-    try:
-        session = await get_session(runner, app_name, user_id, session_id)
-
-        conversation_result = get_session_conversation(session)
-
-        save_session_conversation(session.last_update_time, conversation_result)
-
-    except Exception as exc:
-        print(f"Failed to retrieve session: {exc}")
 
 async def call_agent_async(
     *, query: str, runner: Runner, user_id: str, session_id: str
@@ -113,13 +128,21 @@ async def call_agent_async(
     return conversation_events
 
 
-async def run_conversation(*, runner: Runner, app_name: str, user_id: str, session_id: str) -> None:
+async def run_conversation(*, runner: Runner, app_name: str, user_id: str, session_id: str, test: bool = False) -> None:
+    
+    input_lines: list[str] = _load_test_inputs() if test else []
+    input_generator = (line for line in input_lines)
+    release_env = not test
+    
     print("\nType your message and press Enter. Type 'exit' or 'quit' to stop.")
 
-    # TODO: create an argument to run our test conversation instead of looping
-    while True:
-        query = await asyncio.to_thread(input, ">>> You: ")
+    # If test mode, use predefined inputs; else, use interactive input via endless loop
+    while release_env or (line := next(input_generator, None)) is not None:
+        query = await asyncio.to_thread(input, ">>> You: ") if release_env else line # type: ignore
         query = (query or "").strip()
+
+        if not release_env:
+            print(f">>> You: {query}") # Echo the test input
 
         if not query:
             continue
@@ -132,6 +155,7 @@ async def run_conversation(*, runner: Runner, app_name: str, user_id: str, sessi
             session_id=session_id,
         )
 
+        # If we detect a goodbye from the agent, we end the conversation
         has_goodbye_call = False
         has_goodbye_response = False
 
@@ -147,5 +171,5 @@ async def run_conversation(*, runner: Runner, app_name: str, user_id: str, sessi
 
         if has_goodbye_call and has_goodbye_response:
             print("Agent said goodbye. Ending conversation.")
-            await _save_session_conversation(runner, app_name, user_id, session_id)
+            await _save_session_conversation(runner, app_name, user_id, session_id, test=test)
             return

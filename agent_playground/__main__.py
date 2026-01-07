@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import argparse
 
 from google.adk.sessions import InMemorySessionService
 
@@ -10,7 +11,7 @@ from runtime import build_runner, init_session
 from settings import Settings
 
 
-async def async_main() -> None:
+async def async_main(*, test: bool = False) -> None:
     settings = Settings()
     settings.validate()
 
@@ -25,15 +26,19 @@ async def async_main() -> None:
         app_name=settings.app_name,
         user_id=settings.user_id,
         session_id=settings.session_id,
+        test=test,
     )
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Agent Playground Runner")
+    parser.add_argument("--test", action="store_true", help="Run scripted test inputs instead of interactive mode")
+    args = parser.parse_args()
+    test = bool(args.test)
     try:
-        asyncio.run(async_main())
+        asyncio.run(async_main(test=test))
     except Exception as exc:
         print(f"An error occurred: {exc}")
-
 
 if __name__ == "__main__":
     main()
