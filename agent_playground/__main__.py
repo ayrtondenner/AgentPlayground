@@ -10,10 +10,6 @@ from .conversation import run_conversation
 from .runtime import build_runner, init_session
 from .settings import Settings
 
-# TODO: generate requirements.txt, environment.yml
-# google-adk: conda
-# llite-llm, "google-adk[eval]": pip
-
 async def async_main(*, test: bool = False) -> None:
     settings = Settings()
     settings.validate()

@@ -11,8 +11,29 @@ This project is currently a minimal Google ADK-based "weather agent" example.
 
 ## Requirements
 
-- Python 3.10+
+- Python 3.11+
 - A configured environment with Google ADK + dependencies installed
+
+## Setup
+
+Pick one of the following:
+
+### Option A: Conda (recommended)
+
+```powershell
+conda env create -f environment.yml
+conda activate agent-playground
+python -m agent_playground
+```
+
+### Option B: venv + pip
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m agent_playground
+```
 
 ## Environment variables
 
@@ -25,6 +46,8 @@ Tip: you can set these in PowerShell for the current session:
 $env:OPENAI_MODEL = "gpt-4o-mini"
 $env:OPENAI_API_KEY = "..."
 ```
+
+Alternatively, copy `.env.example` to `.env` and fill in your values.
 
 ## Run
 
