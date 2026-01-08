@@ -11,5 +11,5 @@ what was the first city we talked about again?
    
 please give me a list of cities that we couldnt get the weather here in the conversation
 in fact, give me a list of all cities we discussed about
-give me again climate and time in tokyo?
+give me again climate and time in tokyo? now with utc pls?
 ok thkx bye bye!

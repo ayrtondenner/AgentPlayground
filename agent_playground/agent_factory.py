@@ -73,7 +73,9 @@ def build_local_time_agent(settings: Settings) -> Agent:
             "When the user asks for the local time in a specific city, "
             "use the 'get_local_time' tool to find the information. "
             "If the tool returns an error, inform the user politely. "
-            "If the tool is successful, present the local time clearly."
+            "If the tool is successful, present the local time clearly. "
+            "Always present time in simple terms. Example: 'The local time in Tokyo is 3:45 PM' "
+            "Don't add extra information like time zones or UTC offsets unless specifically asked."
         ),
         tools=[get_local_time],
         output_key="local_time_agent_response",

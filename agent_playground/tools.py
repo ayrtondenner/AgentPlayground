@@ -1,7 +1,34 @@
-from typing import Optional
+from typing import Optional, TypedDict
 from datetime import datetime, timedelta, timezone
 
 from google.adk.tools.tool_context import ToolContext
+
+
+class CityData(TypedDict):
+    """Structured data for a supported city in this mock tool set.
+
+    Keys:
+        weather: Human-readable weather report for the city.
+        utc_offset_hours: Fixed offset from UTC in hours (does not account for DST).
+    """
+    weather: str
+    utc_offset_hours: int
+
+
+CITY_DATA: dict[str, CityData] = {
+    "newyork": {
+        "weather": "The weather in New York is sunny with a temperature of 25°C.",
+        "utc_offset_hours": -5,
+    },
+    "london": {
+        "weather": "It's cloudy in London with a temperature of 15°C.",
+        "utc_offset_hours": 0,
+    },
+    "tokyo": {
+        "weather": "Tokyo is experiencing light rain and a temperature of 18°C.",
+        "utc_offset_hours": 9,
+    },
+}
 
 def get_weather(city: str) -> dict:
     """Retrieves the current weather report for a specified city.
@@ -17,23 +44,12 @@ def get_weather(city: str) -> dict:
     print(f"--- Tool: get_weather called for city: {city} ---")
     city_normalized = city.lower().replace(" ", "")
 
-    mock_weather_db = {
-        "newyork": {
+    city_data = CITY_DATA.get(city_normalized)
+    if city_data:
+        return {
             "status": "success",
-            "report": "The weather in New York is sunny with a temperature of 25°C.",
-        },
-        "london": {
-            "status": "success",
-            "report": "It's cloudy in London with a temperature of 15°C.",
-        },
-        "tokyo": {
-            "status": "success",
-            "report": "Tokyo is experiencing light rain and a temperature of 18°C.",
-        },
-    }
-
-    if city_normalized in mock_weather_db:
-        return mock_weather_db[city_normalized]
+            "report": city_data["weather"],
+        }
 
     return {
         "status": "error",
@@ -59,29 +75,23 @@ def get_local_time(city: str) -> dict:
 
     # Fixed UTC offsets for this mock tool.
     # Note: This intentionally does not model daylight saving time.
-    mock_timezones = {
-        "newyork": {"display": "New York", "utc_offset_hours": -5},
-        "london": {"display": "London", "utc_offset_hours": 0},
-        "tokyo": {"display": "Tokyo", "utc_offset_hours": 9},
-    }
-
-    tz_info = mock_timezones.get(city_normalized)
-    if not tz_info:
+    city_data = CITY_DATA.get(city_normalized)
+    if not city_data:
         return {
             "status": "error",
             "error_message": f"Sorry, I don't have local time information for '{city}'.",
         }
 
     utc_now = datetime.now(timezone.utc)
-    local_tz = timezone(timedelta(hours=tz_info["utc_offset_hours"]))
+    local_tz = timezone(timedelta(hours=city_data["utc_offset_hours"]))
     local_time = utc_now.astimezone(local_tz)
-    offset = tz_info["utc_offset_hours"]
+    offset = city_data["utc_offset_hours"]
     offset_label = f"UTC{offset:+d}"
 
     return {
         "status": "success",
         "report": (
-            f"The local time in {tz_info['display']} is "
+            f"The local time in {city.strip()} is "
             f"{local_time.strftime('%Y-%m-%d %H:%M:%S')} ({offset_label})."
         ),
     }
