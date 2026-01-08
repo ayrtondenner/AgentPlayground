@@ -12,7 +12,7 @@ from .settings import Settings
 
 # TODO: generate requirements.txt, environment.yml
 # google-adk: conda
-# llite-llm: pip
+# llite-llm, "google-adk[eval]": pip
 
 async def async_main(*, test: bool = False) -> None:
     settings = Settings()

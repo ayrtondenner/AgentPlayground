@@ -28,7 +28,11 @@ def build_root_agent(settings: Settings) -> Agent:
     If it's a weather request, delegate it to the 'weather_agent_v1'.
     If it's a local time request, delegate it to the 'local_time_agent_v1'.
     If it's a greeting or farewell, delegate it to the 'greeting_and_farewell_agent'.
-    For anything else, respond appropriately or state you cannot handle it""",
+    For anything else, respond appropriately or state you cannot handle it
+    
+    # Language
+    Respond in the same language as the user.
+    If the user greets you in Portuguese, respond and keep the conversation in Portuguese!""",
         sub_agents=[
             build_weather_agent(settings),
             build_local_time_agent(settings),

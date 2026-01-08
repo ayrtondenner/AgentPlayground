@@ -6,13 +6,18 @@ from google.adk.sessions import InMemorySessionService, Session
 from .settings import Settings
 
 
+def build_initial_state(settings: Settings) -> dict:
+    data = vars(settings)
+
+    # Saving all non-private settings into the session state
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
 async def init_session(
     *, session_service: InMemorySessionService, settings: Settings
 ) -> Session:
 
-    # Saving all non-private settings into the session state
-    data = vars(settings)
-    initial_state = {k: v for k, v in data.items() if not k.startswith("_")}
+    initial_state = build_initial_state(settings)
 
     session = await session_service.create_session(
         app_name=settings.app_name,

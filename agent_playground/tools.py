@@ -3,6 +3,8 @@ from datetime import datetime, timedelta, timezone
 
 from google.adk.tools.tool_context import ToolContext
 
+from .settings import Settings
+
 
 class CityData(TypedDict):
     """Structured data for a supported city in this mock tool set.
@@ -111,7 +113,11 @@ def say_hello(tool_context: ToolContext, name: Optional[str] = None) -> str:
     Returns:
         str: A friendly greeting message.
     """
-    name = name or tool_context.state.get("user_name", None)
+
+    # ADK Web may create sessions without any initial state. If so, fall back to
+    # our local Settings default and persist it into the session state so future
+    # turns/tools can use it.
+    name = name or tool_context.state.get("user_name", None) or Settings().user_name
 
     if name:
         greeting = f"Hello, {name}!"

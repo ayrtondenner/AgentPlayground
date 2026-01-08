@@ -1,0 +1,18 @@
+{
+  "eval_set_id": "weather_evalset",
+  "name": "weather_evalset",
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "case6c6877",
+      "conversation": [],
+      "session_input": {
+        "app_name": "agent_playground",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1767834570.677389
+    }
+  ],
+  "creation_timestamp": 1767834556.0539706
+}
