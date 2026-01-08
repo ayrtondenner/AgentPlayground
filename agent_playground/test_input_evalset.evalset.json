@@ -1,0 +1,825 @@
+{
+  "eval_set_id": "test_input_evalset",
+  "name": "test_input_evalset",
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "txt_eval_case",
+      "conversation": [
+        {
+          "invocation_id": "e-6307926d-2691-45f9-a473-d86504727fb0",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "hi!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, Ayrton Denner!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_1ngr23RVmCj0F8TDbcdDupkq",
+                "args": {
+                  "agent_name": "greeting_and_farewell_agent"
+                },
+                "name": "transfer_to_agent",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_6LxIcEd22cRqvGRPC5iPMQaQ",
+                "args": {},
+                "name": "say_hello",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834942.136336
+        },
+        {
+          "invocation_id": "e-726574a1-a67b-4db5-b6db-b697efa6295b",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "is it cold now in the capital of japan? should I take my raincoat there?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Currently, in Tokyo (the capital of Japan), it is 18°C with light rain. It is a bit cool, and you should take your raincoat if you are heading outside.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_4RTEN7b15qjaFMNX6GRut8YA",
+                "args": {
+                  "agent_name": "weather_agent_v1"
+                },
+                "name": "transfer_to_agent",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_LLDoeqY0h9BgLRQAFGYhcdvf",
+                "args": {
+                  "city": "Tokyo"
+                },
+                "name": "get_weather",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834949.058733
+        },
+        {
+          "invocation_id": "e-fe48acf3-d33f-4a9c-b217-71a98ab55647",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "and what is the local time in London now?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "The local time in London is 1:15 AM.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_ml0vwu13LYeZSUz8yfqqdFk9",
+                "args": {
+                  "agent_name": "local_time_agent_v1"
+                },
+                "name": "transfer_to_agent",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_qlrzR1vorLTFuvsp5FFXPlIg",
+                "args": {
+                  "city": "London"
+                },
+                "name": "get_local_time",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834954.52386
+        },
+        {
+          "invocation_id": "e-9bc4a762-aadd-4bc5-bf7f-ae6ac9f0da83",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "ok, so how's the weather now for the city of angels?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'm sorry, but I don't have the current weather information for Los Angeles right now. If you need details for another city, please let me know!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_4zop8X5psCxLiU1j7F1mNJEo",
+                "args": {
+                  "agent_name": "weather_agent_v1"
+                },
+                "name": "transfer_to_agent",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_u3k9lxH8Rtit7cjz0ifFS2JP",
+                "args": {
+                  "city": "Los Angeles"
+                },
+                "name": "get_weather",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834958.491715
+        },
+        {
+          "invocation_id": "e-992d28b7-618e-4f9b-b30c-45557ec989b6",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "and what about weather in the city that never sleeps? is it time to sleep there right now?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "The weather in New York is sunny with a temperature of 25°C. The local time in New York is 8:16 PM, so it's getting close to bedtime for some people, but the city is still awake!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_8YdxQIWXp6HDx8SojHafkyUe",
+                "args": {
+                  "city": "New York"
+                },
+                "name": "get_weather",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_hiRCFdqEvNZXOUdRHNOYtVxX",
+                "args": {
+                  "agent_name": "local_time_agent_v1"
+                },
+                "name": "transfer_to_agent",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_HaW0AhTSfiphiUjtg6CVkGWx",
+                "args": {
+                  "city": "New York"
+                },
+                "name": "get_local_time",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834964.148454
+        },
+        {
+          "invocation_id": "e-39aa2c56-d204-4076-a20b-ac950d89bab7",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "and the weather for paris, do you have it?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'm sorry, but I don't have the current weather information for Paris at the moment. If you need weather updates for another city, feel free to ask!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_6f9TnnaDf3dvZHWP5WD0lZ9T",
+                "args": {
+                  "agent_name": "weather_agent_v1"
+                },
+                "name": "transfer_to_agent",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_X4rxlwOZQ9xmCrgo8FCyyrh7",
+                "args": {
+                  "city": "Paris"
+                },
+                "name": "get_weather",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834970.82121
+        },
+        {
+          "invocation_id": "e-ae418c3c-b9c5-4099-91f4-ff78241f977b",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "and for kyoto? how is it going there?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'm sorry, but I currently don't have weather information for Kyoto. If you want to know about another city's weather, just let me know!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_0EkAzL4JXXootvZIyw6Vo5i7",
+                "args": {
+                  "city": "Kyoto"
+                },
+                "name": "get_weather",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834975.094038
+        },
+        {
+          "invocation_id": "e-cc395e60-2a86-4ba1-badb-60b79c723642",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "isnt tokio and kyoto at the same country? how could you have data for one city but not another?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Yes, both Tokyo and Kyoto are in Japan. The availability of weather data can vary depending on the sources and services that provide information. Sometimes, updates or detailed reports may only be accessible for larger or internationally recognized cities (like Tokyo), while smaller or less frequently requested cities (like Kyoto) might not always be included in the available dataset. That's why I was able to provide you with the weather for Tokyo but not for Kyoto at this time. If you need weather updates for other major cities, I’ll do my best to help!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834979.966904
+        },
+        {
+          "invocation_id": "e-30013207-df48-4db1-b737-1fa51b7bfcd6",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "what was the first city we talked about again?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "The first city we talked about was Tokyo, the capital of Japan.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834985.80803
+        },
+        {
+          "invocation_id": "e-1c09e383-bd7a-4d23-97a3-a2fe8ef7b543",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "please give me a list of cities that we couldnt get the weather here in the conversation",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Certainly! Here are the cities from our conversation for which I couldn’t provide the weather information:\n\n- Los Angeles\n- Paris\n- Kyoto\n\nIf you want to check the weather for another city, just let me know!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834990.727239
+        },
+        {
+          "invocation_id": "e-a071ffbb-a64e-404f-bf4e-60f5dea3f7cd",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "in fact, give me a list of all cities we discussed about",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Here is a list of all the cities we discussed in this conversation:\n\n1. Tokyo\n2. London\n3. Los Angeles\n4. New York\n5. Paris\n6. Kyoto\n\nIf you’d like information about any of these cities, or another one, just ask!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767834994.774341
+        },
+        {
+          "invocation_id": "e-e7589406-59e0-4391-9cf0-5b969ab00e6a",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "order them alphabetically now",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Here are the cities we discussed, listed in alphabetical order:\n\n1. Kyoto\n2. London\n3. Los Angeles\n4. New York\n5. Paris\n6. Tokyo\n\nIf you need more details about any of them, let me know!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767835011.08071
+        },
+        {
+          "invocation_id": "e-41d65b7f-f95b-4f12-b5e8-f4d459760104",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "give me again climate and time in tokyo? now with utc pls?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Tokyo is experiencing light rain and a temperature of 18°C. The local time in Tokyo is 10:17 AM (UTC+9).",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_grmfuz8MAT60lzBxhpZ05VRb",
+                "args": {
+                  "city": "Tokyo"
+                },
+                "name": "get_weather",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_EKbecLEyL29pE7B2eT5Bb5On",
+                "args": {
+                  "agent_name": "local_time_agent_v1"
+                },
+                "name": "transfer_to_agent",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_7VzgEyzMfQV9UiVgQmM5z13V",
+                "args": {
+                  "city": "Tokyo"
+                },
+                "name": "get_local_time",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767835017.840747
+        },
+        {
+          "invocation_id": "e-e3ee78a6-0ae3-4c76-9068-c388a09c7a1f",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "ok thkx bye bye!",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Goodbye! Have a great night.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_uZl4MLk36WRen93jcFE4RfPs",
+                "args": {
+                  "agent_name": "greeting_and_farewell_agent"
+                },
+                "name": "transfer_to_agent",
+                "partial_args": null,
+                "will_continue": null
+              },
+              {
+                "id": "call_HUDl42TyAaKbmNZJEcJggj0c",
+                "args": {},
+                "name": "say_goodbye",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1767835028.000336
+        }
+      ],
+      "session_input": {
+        "app_name": "agent_playground",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1767835093.1415992
+    }
+  ],
+  "creation_timestamp": 1767835050.819728
+}

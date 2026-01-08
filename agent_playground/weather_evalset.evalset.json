@@ -12,6 +12,16 @@
         "state": {}
       },
       "creation_timestamp": 1767834570.677389
+    },
+    {
+      "eval_id": "case526855",
+      "conversation": [],
+      "session_input": {
+        "app_name": "agent_playground",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1767834810.0238464
     }
   ],
   "creation_timestamp": 1767834556.0539706

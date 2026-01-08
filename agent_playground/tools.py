@@ -100,15 +100,18 @@ def get_local_time(city: str) -> dict:
 
 def say_hello(tool_context: ToolContext, name: Optional[str] = None) -> str:
     """Provides a simple greeting.
-    If a name is provided, it will be used. Defaults to a generic greeting if not provided.
+
+    If a name is found, it will be used. Defaults to a generic greeting if no
+    name is available.
 
     Name resolution order (most specific to least specific):
     1) Use the explicit `name` argument (typically extracted from the user's message).
-    2) Otherwise, fall back to `tool_context.state["user_name"]`.
+    2) Otherwise, fall back to `tool_context.state["user_name"]` (if present).
+    3) Otherwise, fall back to `Settings().user_name`.
 
     Args:
-        name (str, optional): The name of the person to greet.
-            If omitted, the tool will attempt to use `tool_context.state["user_name"]`.
+        tool_context: Tool context containing session state.
+        name: Optional name of the person to greet.
 
     Returns:
         str: A friendly greeting message.
