@@ -5,10 +5,10 @@ import argparse
 
 from google.adk.sessions import InMemorySessionService
 
-from agent_factory import build_root_agent
-from conversation import run_conversation
-from runtime import build_runner, init_session
-from settings import Settings
+from .agent_factory import build_root_agent
+from .conversation import run_conversation
+from .runtime import build_runner, init_session
+from .settings import Settings
 
 # TODO: generate requirements.txt, environment.yml
 # google-adk: conda

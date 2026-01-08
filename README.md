@@ -41,3 +41,16 @@ python __main__.py
 ```
 
 Once running, type messages into the terminal. Use `exit` or `quit` to stop.
+
+## Run with ADK Web UI
+
+The ADK CLI discovers agents by scanning subfolders for an `agent.py` that exports a top-level `root_agent`.
+This repo provides that entrypoint at `agent_playground/agent.py`.
+
+From the repo root (the parent folder that contains `agent_playground/`), run:
+
+```powershell
+adk web --port 8000
+```
+
+Then open http://localhost:8000 and select `agent_playground`.

@@ -8,14 +8,16 @@
             "name": "Python Debugger: Main File",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/agent_playground/__main__.py",
+            "module": "agent_playground",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal"
         },
         {
             "name": "Python Debugger: Main File (--test)",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/agent_playground/__main__.py",
+            "module": "agent_playground",
+            "cwd": "${workspaceFolder}",
             "args": [
                 "--test"
             ],

@@ -3,8 +3,8 @@ from __future__ import annotations
 from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
 
-from settings import Settings
-from tools import get_weather, get_local_time, say_hello, say_goodbye
+from .settings import Settings
+from .tools import get_weather, get_local_time, say_hello, say_goodbye
 
 def build_root_agent(settings: Settings) -> Agent:
     """Create the root ADK Agent instance.
