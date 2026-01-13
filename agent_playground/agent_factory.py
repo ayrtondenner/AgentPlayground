@@ -6,6 +6,9 @@ from google.adk.models.lite_llm import LiteLlm
 from .settings import Settings
 from .tools import get_weather, get_local_time, say_hello, say_goodbye
 
+from .guardrails.model_callback import block_keyword_guardrail
+from .guardrails.tool_callback import block_springfield_tool_guardrail
+
 def build_root_agent(settings: Settings) -> Agent:
     """Create the root ADK Agent instance.
 
@@ -20,13 +23,13 @@ def build_root_agent(settings: Settings) -> Agent:
     You are coordinating a team. Your task is to delegate user requests to the appropriate agent.
 
     You have specialized sub-agents:
-    - The 'weather_agent_v1' which provides weather information for specific cities.
-    - The 'local_time_agent_v1' which provides local time for specific cities.
+    - The 'weather_agent' which provides weather information for specific cities.
+    - The 'local_time_agent' which provides local time for specific cities.
     - The 'greeting_and_farewell_agent' which handles greetings ('hi', 'hello') and farewells ('bye', 'see you').
 
     Analyze the user's query.
-    If it's a weather request, delegate it to the 'weather_agent_v1'.
-    If it's a local time request, delegate it to the 'local_time_agent_v1'.
+    If it's a weather request, delegate it to the 'weather_agent'.
+    If it's a local time request, delegate it to the 'local_time_agent'.
     If it's a greeting or farewell, delegate it to the 'greeting_and_farewell_agent'.
     For anything else, respond appropriately or state you cannot handle it
     
@@ -49,7 +52,7 @@ def build_weather_agent(settings: Settings) -> Agent:
     Kept as a factory so importing modules doesn't create side effects.
     """
     return Agent(
-        name="weather_agent_v1",
+        name="weather_agent",
         model=LiteLlm(model=settings._openai_model),
         description="Provides weather information for specific cities.",
         instruction=(
@@ -61,6 +64,8 @@ def build_weather_agent(settings: Settings) -> Agent:
         ),
         tools=[get_weather],
         output_key="weather_agent_response",
+        before_model_callback=block_keyword_guardrail,
+        before_tool_callback=block_springfield_tool_guardrail,
     )
 
 def build_local_time_agent(settings: Settings) -> Agent:
@@ -69,7 +74,7 @@ def build_local_time_agent(settings: Settings) -> Agent:
     Kept as a factory so importing modules doesn't create side effects.
     """
     return Agent(
-        name="local_time_agent_v1",
+        name="local_time_agent",
         model=LiteLlm(model=settings._openai_model),
         description="Provides local time information for specific cities.",
         instruction=(
